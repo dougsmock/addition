@@ -1,18 +1,37 @@
+#string test for non-numbers, if I can ever find one that works
+
+def check_string(string)
+  puts "Yes, you called this function, genius. It still does nothing."
+end
+
+def check_zero(b)
+  if b == 0
+    puts "You can't divide by zero, dum-dum."
+    repeat()
+  end
+end
+
 def plus(choice)
   print "Let's add two numbers. Give me one: "
-  a = gets.chomp.to_i
+  a = gets.chomp.to_f
+  check_string(a)
   print "Give me the other: "
-  b = gets.chomp.to_i
+  b = gets.chomp.to_f
+  check_string(b)
   answer = a + b
   print "#{answer}\n\n"
   repeat()
 end
 
+## trying to string-proof entries
+
 def minus(choice)
   print "Let's subtract two numbers. Give me one: "
-  a = gets.chomp.to_i
+  a = gets.chomp.to_f
+  check_string(a)
   print "Give me the other: "
-  b = gets.chomp.to_i
+  b = gets.chomp.to_f
+  check_string(b)
   answer = a - b
   print "#{answer}\n\n"
   repeat()
@@ -20,9 +39,11 @@ end
 
 def times(choice)
   print "Let's multiply two numbers. Give me one: "
-  a = gets.chomp.to_i
+  a = gets.chomp.to_f
+  check_string(a)
   print "Give me the other: "
-  b = gets.chomp.to_i
+  b = gets.chomp.to_f
+  check_string(b)
   answer = a * b
   print "#{answer}\n\n"
   repeat()
@@ -31,18 +52,15 @@ end
 def divideby(choice)
   print "Let's divide two numbers. Give me one: "
   a = gets.chomp.to_f
+  check_string(a)
   print "Give me the other: "
   b = gets.chomp.to_f
+  check_zero(b)
+  check_string(b)
   answer = a / b
   print "#{answer}\n\n"
   repeat()
 end
-
-#Giving the user a repeat
-#Use again?
-#y -- go through process again
-#n -- bails out, say Goodbye
-#typo, he repeats
 
 def repeat()
   puts "Do you want to do this again? (y/n)"
